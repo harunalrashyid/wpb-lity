@@ -17,19 +17,24 @@ if ( !class_exists('WPBLity') ) {
         }
 
         vc_map(array(
-            'name' => esc_html__('Video Lightbox', 'nt-agricom'),
+            'name' => esc_html__('Video Lightbox', 'wpb-lity'),
             'base' => 'wpb_lity',
-            'description' => esc_html__('Open video as lightbox', 'nt-agricom'),
-            'category' => esc_html__( 'Content', 'nt-agricom'),
+            'description' => esc_html__('Open video as lightbox', 'wpb-lity'),
+            'category' => esc_html__( 'Content', 'wpb-lity'),
             'params' => array(
                 array(
                     'type' => 'attach_image',
-                    'heading' => esc_html__('Video Poster', 'nt-agricom'),
+                    'heading' => esc_html__('Video Poster', 'wpb-lity'),
                     'param_name' => 'poster'
                 ),
                 array(
                     'type' => 'textfield',
-                    'heading' => esc_html__('URL Link', 'nt-agricom'),
+                    'heading' => esc_html__('URL Link', 'wpb-lity'),
+                    'param_name' => 'url_link'
+                ),
+                array(
+                    'type' => 'textfield',
+                    'heading' => esc_html__('Label Link', 'wpb-lity'),
                     'param_name' => 'url_link'
                 )
             )
