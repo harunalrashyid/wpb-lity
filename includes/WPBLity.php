@@ -12,49 +12,52 @@ if ( !class_exists('WPBLity') ) {
 
     public function create_shortcode() {
       // stop all if WPB not enable
-        if ( !defined('WPB_VC_VERSION') ) {
+        if ( !defined( 'WPB_VC_VERSION' ) ) {
             return;
         }
 
         vc_map(array(
-            'name' => esc_html__('Video Lightbox', 'wpb-lity'),
+            'name' => esc_html__( 'Video Lightbox', 'wpb-lity' ),
             'base' => 'wpb_lity',
-            'description' => esc_html__('Open video as lightbox', 'wpb-lity'),
-            'category' => esc_html__( 'Content', 'wpb-lity'),
+            'description' => esc_html__( 'Open video as lightbox', 'wpb-lity' ),
+            'category' => esc_html__( 'Content', 'wpb-lity' ),
             'params' => array(
                 array(
                     'type' => 'attach_image',
-                    'heading' => esc_html__('Video Poster', 'wpb-lity'),
+                    'heading' => esc_html__( 'Video Poster', 'wpb-lity' ),
                     'param_name' => 'poster'
                 ),
                 array(
                     'type' => 'textfield',
-                    'heading' => esc_html__('URL Link', 'wpb-lity'),
+                    'heading' => esc_html__( 'URL Link', 'wpb-lity' ),
                     'param_name' => 'url_link'
                 ),
                 array(
                     'type' => 'textfield',
-                    'heading' => esc_html__('Label Link', 'wpb-lity'),
-                    'param_name' => 'url_link'
+                    'heading' => esc_html__( 'Label Link', 'wpb-lity' ),
+                    'description' => esc_html__( 'Leave empty to use default text: Video Link', 'wpb-lity' ),
+                    'param_name' => 'label_link'
                 )
             )
         ));
     }
 
     public function render_shortcode( $atts, $content, $tag ) {
-        $atts = (shortcode_atts(array(
+        $atts = ( shortcode_atts( array(
             'poster' => '',
-            'url_link' => ''
-        ), $atts));
+            'url_link' => '',
+            'label_link' => 'Video Link'
+        ), $atts ) );
 
-        $content = wpb_js_remove_wpautop($content, true);
-        $video_poster = wp_get_attachment_url( esc_html($atts['poster']),'full' );
-        $url_link = esc_html($atts['url_link']);
+        $content = wpb_js_remove_wpautop( $content, true );
+        $video_poster = wp_get_attachment_url( esc_html( $atts['poster'] ), 'full' );
+        $url_link = esc_html( $atts['url_link'] );
+        $label_link = esc_html( $atts['label_link'] );
 
         $output = '';
         $output .= '<div class="wpb-lity">';
         $output .= '<figure class="wpb-lity__image"><img src="' . esc_url( $video_poster ) . '"></figure>';
-        $output .= '<a class="wpb-lity__link" data-lity href="' . esc_url( $url_link ) . '">Video Link</a>';
+        $output .= '<a class="wpb-lity__link" data-lity href="' . esc_url( $url_link ) . '">' . $label_link . '</a>';
         $output .= '</div>';
 
         return $output;
