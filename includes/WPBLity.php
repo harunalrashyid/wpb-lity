@@ -56,7 +56,11 @@ if ( !class_exists('WPBLity') ) {
 
         $output = '';
         $output .= '<div class="wpb-lity">';
-        $output .= '<figure class="wpb-lity__image"><img src="' . esc_url( $video_poster ) . '"></figure>';
+        
+        if ( $video_poster ) {
+            $output .= '<figure class="wpb-lity__image"><img src="' . esc_url( $video_poster ) . '"></figure>';
+        }
+
         $output .= '<a class="wpb-lity__link" data-lity href="' . esc_url( $url_link ) . '">' . $label_link . '</a>';
         $output .= '</div>';
 
