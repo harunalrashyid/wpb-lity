@@ -30,7 +30,8 @@ if ( !class_exists('WPBLity') ) {
                 array(
                     'type' => 'textfield',
                     'heading' => esc_html__( 'URL Link', 'wpb-lity' ),
-                    'param_name' => 'url_link'
+                    'param_name' => 'url_link',
+                    'admin_label' => true
                 ),
                 array(
                     'type' => 'textfield',
@@ -43,16 +44,18 @@ if ( !class_exists('WPBLity') ) {
     }
 
     public function render_shortcode( $atts, $content, $tag ) {
-        $atts = ( shortcode_atts( array(
+        $args = array(
             'poster' => '',
             'url_link' => '',
             'label_link' => 'Video Link'
-        ), $atts ) );
+        );
 
-        $content = wpb_js_remove_wpautop( $content, true );
-        $video_poster = wp_get_attachment_url( esc_html( $atts['poster'] ), 'full' );
-        $url_link = esc_html( $atts['url_link'] );
-        $label_link = esc_html( $atts['label_link'] );
+        $atts = ( shortcode_atts( $args, $atts ) );
+
+        $content        = wpb_js_remove_wpautop( $content, true );
+        $video_poster   = wp_get_attachment_url( esc_html( $atts['poster'] ), 'full' );
+        $url_link       = esc_html( $atts['url_link'] );
+        $label_link     = esc_html( $atts['label_link'] );
 
         $output = '';
         $output .= '<div class="wpb-lity">';
