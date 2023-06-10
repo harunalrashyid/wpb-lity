@@ -3,7 +3,7 @@
 /**
  * Plugin Name: WPBakery Lightbox
  * Description: Lightbox component for WPBakery
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Harun
  * Author URI: https://github.com/harunalrashyid
  * 
@@ -26,7 +26,7 @@ if ( ! defined( 'WPB_VC_VERSION' ) ) {
 $plugin_file = plugin_basename( __FILE__ );
 
 define( 'WPB_LITY', $plugin_file );
-define( 'WPB_LITY_VERSION', '1.0.0' );
+define( 'WPB_LITY_VERSION', '1.0.1' );
 
 require_once( __DIR__ . '/includes/WPBLity.php' );
 
