@@ -1,0 +1,46 @@
+.wpb-lity--with-image {
+    position: relative;
+}
+
+.wpb-lity__image-item {
+	height: auto;
+	max-width: 100%;
+	box-sizing: border-box;
+    vertical-align: bottom;
+}
+
+.wpb-lity__link {
+	color: var(--color-link);
+	background-color: var(--color-link-bg);
+	display: inline-flex;
+	align-items: center;
+	text-decoration: none;
+	padding: 8px 16px;
+	border-radius: 4px;
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 25ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.wpb-lity__link--with-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wpb-lity__link--rounded {
+	padding: 8px;
+	border-radius: 50%;
+}
+
+.wpb-lity__link--pills {
+	border-radius: 50px;
+}
+
+.wpb-lity__link--nude {
+	padding: 4px 8px;
+	background-color: transparent;
+}
+
+.wpb-lity__link--nude:hover {
+	background-color: var(--color-link-bg);
+}
